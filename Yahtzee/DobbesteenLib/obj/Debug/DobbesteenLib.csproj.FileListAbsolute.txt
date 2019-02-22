@@ -1,0 +1,6 @@
+C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\bin\Debug\DobbesteenLib.dll
+C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\bin\Debug\DobbesteenLib.pdb
+C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.csprojAssemblyReference.cache
+C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.csproj.CoreCompileInputs.cache
+C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.dll
+C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.pdb
