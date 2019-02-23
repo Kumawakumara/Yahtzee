@@ -22,7 +22,7 @@ namespace DobbesteenLib.Services
         {
             for (int i = 1; i <= 6; i++)
             {
-                int waarde = rnd.Next(1, 7);
+                
                 Dobbelstenen nieuweSteen = new Dobbelstenen();
                 StenenList.Add(nieuweSteen);
                 

@@ -119,7 +119,7 @@ namespace Yahtzee
                 beurten--;
                 lblAantalBeurten.Content = beurten;
             }
-            if(beurten == 0)
+            if (beurten == 0)
             {
                 
                 btnRol.IsEnabled = false;
@@ -323,7 +323,7 @@ namespace Yahtzee
             int totaal = 0;
             bool ThreeOfAKind = false;
 
-            for (int i = 0; i <= 5; i++)
+            for (int i = 1; i <= 6; i++)
             {
                 int nummer = 0;
                 for (int j = 0; j <= 5; j++)
@@ -358,7 +358,7 @@ namespace Yahtzee
             int totaal = 0;
             bool FourOfAKind = false;
 
-            for (int i = 0; i <= 5; i++)
+            for (int i = 1; i <= 6; i++)
             {
                 int nummer = 0;
                 for (int j = 0; j <= 5; j++)
