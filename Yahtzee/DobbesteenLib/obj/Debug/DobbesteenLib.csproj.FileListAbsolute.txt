@@ -4,3 +4,9 @@ C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.csprojA
 C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.csproj.CoreCompileInputs.cache
 C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.dll
 C:\Users\Mike\source\repos\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.pdb
+C:\Users\Mike\Desktop\Yahtzee-master\Yahtzee\DobbesteenLib\bin\Debug\DobbesteenLib.dll
+C:\Users\Mike\Desktop\Yahtzee-master\Yahtzee\DobbesteenLib\bin\Debug\DobbesteenLib.pdb
+C:\Users\Mike\Desktop\Yahtzee-master\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.csprojAssemblyReference.cache
+C:\Users\Mike\Desktop\Yahtzee-master\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.csproj.CoreCompileInputs.cache
+C:\Users\Mike\Desktop\Yahtzee-master\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.dll
+C:\Users\Mike\Desktop\Yahtzee-master\Yahtzee\DobbesteenLib\obj\Debug\DobbesteenLib.pdb

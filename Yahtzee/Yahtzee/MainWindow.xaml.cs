@@ -29,18 +29,31 @@ namespace Yahtzee
         bool rol3 = true;
         bool rol4 = true;
         bool rol5 = true;
-        bool rol6 = true;
+        bool rol6 = true;    
+
         int eindeEersteDeel = 0;
+        int eindeTweedeDeel = 0;        
         
         public MainWindow()
         {
-            InitializeComponent();
-            SpelVerloop starten = new SpelVerloop();
-            lblTotal.Visibility = Visibility.Hidden;
-            lblTotalText.Visibility = Visibility.Hidden;
+            InitializeComponent();         
+            
 
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            StartNewGame();
+        }
+        void StartNewGame()
+        {
+            lblTotal.Visibility = Visibility.Hidden;
+            lblTotalText.Visibility = Visibility.Hidden;
+            lblTotalTweedeDeel.Visibility = Visibility.Hidden;
+            lblTotaalTweedeDeelText.Visibility = Visibility.Hidden;
+            lblTotaalSpel.Visibility = Visibility.Hidden;
+
+        }
         void Reset()
         {
             btnRol.IsEnabled = true;
@@ -63,6 +76,11 @@ namespace Yahtzee
             rol4 = true;
             rol5 = true;
             rol6 = true;
+
+            for (int i = 0; i <= 5; i++)
+            {
+                spelVerloop.StenenList[i].Waarde = 0;
+            }
         }
         void EindeSingleNummers()
         {
@@ -74,18 +92,98 @@ namespace Yahtzee
                 int eind4 = Convert.ToInt32(btnViers.Content);
                 int eind5 = Convert.ToInt32(btnVijfs.Content);
                 int eind6 = Convert.ToInt32(btnZess.Content);
+
                 int total = eind1 + eind2 + eind3 + eind4 + eind5 + eind6;
                 lblTotal.Visibility = Visibility.Visible;
                 lblTotalText.Visibility = Visibility.Visible;
                 lblTotal.Content = total;
+
+                VerbergEersteDeel();
             }
         }
+        void VerbergEersteDeel()
+        {
+            lbl1.Visibility = Visibility.Hidden;
+            lbl2.Visibility = Visibility.Hidden;
+            lbl3.Visibility = Visibility.Hidden;
+            lbl4.Visibility = Visibility.Hidden;
+            lbl5.Visibility = Visibility.Hidden;
+            lbl6.Visibility = Visibility.Hidden;
 
-        private void btnRol_Click(object sender, RoutedEventArgs e)
+            btnEentjes.Visibility = Visibility.Hidden;
+            btnTwees.Visibility = Visibility.Hidden;
+            btnDries.Visibility = Visibility.Hidden;
+            btnViers.Visibility = Visibility.Hidden;
+            btnVijfs.Visibility = Visibility.Hidden;
+            btnZess.Visibility = Visibility.Hidden;
+            
+        }
+        void EindeOndersteRij()
+        {
+            if (eindeTweedeDeel == 6)
+            {
+                int threeOfAKind = Convert.ToInt32(btnThreeOfAKind.Content);
+                int fourOfAKind = Convert.ToInt32(btnFourOfAKind.Content);
+                int kleineStraat = Convert.ToInt32(btnKleineStraat.Content);
+                int groteStraat = Convert.ToInt32(btnGroteStraat.Content);
+                int chance = Convert.ToInt32(btnChance.Content);
+                int yahtzee = Convert.ToInt32(btnYahtzee.Content);
+                
+
+                int total = threeOfAKind + fourOfAKind + kleineStraat + groteStraat + chance + yahtzee;
+                lblTotalTweedeDeel.Content = total;
+                
+
+                VerbergTweedeDeel();
+            }
+        }
+        void VerbergTweedeDeel()
+        {
+            lbl3OfKind.Visibility = Visibility.Hidden;
+            lbl4OfKind.Visibility = Visibility.Hidden;
+            lblKleineStraat.Visibility = Visibility.Hidden;
+            lblGroteStraat.Visibility = Visibility.Hidden;
+            lblChance.Visibility = Visibility.Hidden;
+            lblYahtzee.Visibility = Visibility.Hidden;
+
+            btnThreeOfAKind.Visibility = Visibility.Hidden;
+            btnFourOfAKind.Visibility = Visibility.Hidden;
+            btnKleineStraat.Visibility = Visibility.Hidden;
+            btnGroteStraat.Visibility = Visibility.Hidden;
+            btnChance.Visibility = Visibility.Hidden;
+            btnYahtzee.Visibility = Visibility.Hidden;
+
+            lblTotaalTweedeDeelText.Visibility = Visibility.Visible;
+            lblTotalTweedeDeel.Visibility = Visibility.Visible;
+        }
+        private void EndGame()
+        {
+            if (eindeEersteDeel == 6 && eindeTweedeDeel == 6)
+            {
+                lblTotaalSpel.Visibility = Visibility.Visible;
+                btn1.Visibility = Visibility.Hidden;
+                btn2.Visibility = Visibility.Hidden;
+                btn3.Visibility = Visibility.Hidden;
+                btn4.Visibility = Visibility.Hidden;
+                btn5.Visibility = Visibility.Hidden;
+                btn6.Visibility = Visibility.Hidden;
+                btnRol.Visibility = Visibility.Hidden;
+                lblBeurten.Visibility = Visibility.Hidden;
+                lblAantalBeurten.Visibility = Visibility.Hidden;
+
+
+                int firstPart = Convert.ToInt32(lblTotal.Content);
+                int secondPart = Convert.ToInt32(lblTotalTweedeDeel.Content);
+                int totaal = firstPart + secondPart;
+                lblTotaalSpel.Content = "Totaal spel: " + totaal;
+            }
+        }
+        
+        void RolStenen()
         {
             int beurten = int.Parse(lblAantalBeurten.Content.ToString());
             if (beurten > 0)
-            {                
+            {
                 if (rol1 == true)
                 {
                     spelVerloop.RolSteen1();
@@ -121,9 +219,118 @@ namespace Yahtzee
             }
             if (beurten == 0)
             {
-                
+
                 btnRol.IsEnabled = false;
             }
+        }
+        void CheckKleineStraat()
+        {
+            bool one = false;
+            bool two = false;
+            bool three = false;
+            bool four = false;
+            bool five = false;
+            bool six = false;
+
+            for (int i = 0; i <= 5; i++)
+            {
+                if (spelVerloop.StenenList[i].Waarde == 1)
+                {
+                    one = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 2)
+                {
+                    two = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 3)
+                {
+                    three = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 4)
+                {
+                    four = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 5)
+                {
+                    five = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 6)
+                {
+                    six = true;
+                }
+            }
+
+            if (one == true && two == true && three == true && four == true)
+            {
+                btnKleineStraat.Content = 30;
+            }
+            else if (two == true && three == true && four == true && five == true)
+            {
+                btnKleineStraat.Content = 30;
+            }
+            else if (three == true && four == true && five == true && six == true)
+            {
+                btnKleineStraat.Content = 30;
+            }
+            else
+            {
+                btnKleineStraat.Content = 0;
+            }
+        }
+        void CheckGroteStraat()
+        {
+            bool one = false;
+            bool two = false;
+            bool three = false;
+            bool four = false;
+            bool five = false;
+            bool six = false;
+
+            for (int i = 0; i <= 5; i++)
+            {
+                if (spelVerloop.StenenList[i].Waarde == 1)
+                {
+                    one = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 2)
+                {
+                    two = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 3)
+                {
+                    three = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 4)
+                {
+                    four = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 5)
+                {
+                    five = true;
+                }
+                else if (spelVerloop.StenenList[i].Waarde == 6)
+                {
+                    six = true;
+                }
+            }
+
+            if (one == true && two == true && three == true && four == true && five == true)
+            {
+                btnGroteStraat.Content = 40;
+            }
+            else if (two == true && three == true && four == true && five == true && six == true)
+            {
+                btnGroteStraat.Content = 40;
+            }
+            else
+            {
+                btnGroteStraat.Content = 0;
+            }
+        }
+
+        private void btnRol_Click(object sender, RoutedEventArgs e)
+        {
+            RolStenen();
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)
@@ -139,6 +346,7 @@ namespace Yahtzee
                 btn1.IsEnabled = true;
                 btn1.Background = Brushes.LightGray;
             }
+            
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
@@ -231,6 +439,7 @@ namespace Yahtzee
             Reset();
             eindeEersteDeel++;
             EindeSingleNummers();
+            EndGame();
         }
 
         private void btnTwees_Click(object sender, RoutedEventArgs e)
@@ -248,6 +457,7 @@ namespace Yahtzee
             Reset();
             eindeEersteDeel++;
             EindeSingleNummers();
+            EndGame();
         }
 
         private void btnDries_Click(object sender, RoutedEventArgs e)
@@ -265,6 +475,7 @@ namespace Yahtzee
             Reset();
             eindeEersteDeel++;
             EindeSingleNummers();
+            EndGame();
         }
 
         private void btnViers_Click(object sender, RoutedEventArgs e)
@@ -282,6 +493,7 @@ namespace Yahtzee
             Reset();
             eindeEersteDeel++;
             EindeSingleNummers();
+            EndGame();
         }
 
         private void btnVijfs_Click(object sender, RoutedEventArgs e)
@@ -299,6 +511,7 @@ namespace Yahtzee
             Reset();
             eindeEersteDeel++;
             EindeSingleNummers();
+            EndGame();
         }
 
         private void btnZess_Click(object sender, RoutedEventArgs e)
@@ -316,6 +529,7 @@ namespace Yahtzee
             Reset();
             eindeEersteDeel++;
             EindeSingleNummers();
+            EndGame();
         }
 
         private void btnThreeOfAKind_Click(object sender, RoutedEventArgs e)
@@ -350,7 +564,10 @@ namespace Yahtzee
             }            
 
             btnThreeOfAKind.IsEnabled = false;
+            eindeTweedeDeel++;
+            EindeOndersteRij();
             Reset();
+            EndGame();
         }
 
         private void btnFourOfAKind_Click(object sender, RoutedEventArgs e)
@@ -373,6 +590,7 @@ namespace Yahtzee
                         FourOfAKind = true;
                     }
                 }
+                EndGame();
             }
 
             if (FourOfAKind == true)
@@ -385,7 +603,10 @@ namespace Yahtzee
             }
 
             btnFourOfAKind.IsEnabled = false;
+            eindeTweedeDeel++;
+            EindeOndersteRij();
             Reset();
+            EndGame();
         }
 
         private void btnChance_Click(object sender, RoutedEventArgs e)
@@ -397,23 +618,57 @@ namespace Yahtzee
             }
             btnChance.Content = totaal;
             btnChance.IsEnabled = false;
+            eindeTweedeDeel++;
+            EindeOndersteRij();
             Reset();
+            EndGame();
         }
 
         private void btnYahtzee_Click(object sender, RoutedEventArgs e)
-        {
-            if ((spelVerloop.StenenList[0].Waarde == spelVerloop.StenenList[1].Waarde) &&
+        {   
+            if (spelVerloop.StenenList[0].Waarde != 0)
+            {
+                if ((spelVerloop.StenenList[0].Waarde == spelVerloop.StenenList[1].Waarde) &&
                 (spelVerloop.StenenList[1].Waarde == spelVerloop.StenenList[2].Waarde) &&
                 (spelVerloop.StenenList[2].Waarde == spelVerloop.StenenList[3].Waarde) &&
                 (spelVerloop.StenenList[4].Waarde == spelVerloop.StenenList[5].Waarde))
-            {
-                btnYahtzee.Content = 50;
+                {
+                    btnYahtzee.Content = 50;
+                }
+                else
+                    btnYahtzee.Content = 0;
             }
             else
+            {
                 btnYahtzee.Content = 0;
+            }
+            
 
             btnYahtzee.IsEnabled = false;
+            eindeTweedeDeel++;
+            EindeOndersteRij();
             Reset();
+            EndGame();
         }
+
+        private void btnGroteStraat_Click(object sender, RoutedEventArgs e)
+        {
+            CheckGroteStraat();            
+            btnGroteStraat.IsEnabled = false;
+            eindeTweedeDeel++;
+            EindeOndersteRij();
+            Reset();
+            EndGame();
+        }
+
+        private void btnKleineStraat_Click(object sender, RoutedEventArgs e)
+        {
+            CheckKleineStraat();
+            btnKleineStraat.IsEnabled = false;
+            eindeTweedeDeel++;
+            EindeOndersteRij();
+            Reset();
+            EndGame();
+        }        
     }
 }

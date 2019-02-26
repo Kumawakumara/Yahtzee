@@ -10,9 +10,9 @@ namespace DobbesteenLib.Entities
     {
         public int Waarde { get; set; }
 
-        public Dobbelstenen()
+        public Dobbelstenen(int waarde)
         {
-            
+            Waarde = waarde;
         }
     }
 }

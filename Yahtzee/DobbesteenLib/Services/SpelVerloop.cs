@@ -22,8 +22,8 @@ namespace DobbesteenLib.Services
         {
             for (int i = 1; i <= 6; i++)
             {
-                
-                Dobbelstenen nieuweSteen = new Dobbelstenen();
+                int random = rnd.Next(1, 7);
+                Dobbelstenen nieuweSteen = new Dobbelstenen(random);
                 StenenList.Add(nieuweSteen);
                 
             }

@@ -5,19 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Yahtzee"
         mc:Ignorable="d"
-        Title="Yahtzee" Height="513.5" Width="791" Background="#FF5ACCDE">
+        Title="Yahtzee" Height="513.5" Width="791" Background="#FF5ACCDE" Loaded="Window_Loaded">
     <Grid>
-        <Label Content="1's" HorizontalAlignment="Left" Margin="492,16,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="btnEentjes" Content="Klik" HorizontalAlignment="Left" Margin="492,63,0,0" VerticalAlignment="Top" Width="72" FontSize="20" Height="38" Click="btnEentjes_Click"/>
-        <Label Content="2's" HorizontalAlignment="Left" Margin="492,126,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lbl2" Content="2's" HorizontalAlignment="Left" Margin="492,126,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="btnTwees" Content="Klik" HorizontalAlignment="Left" Margin="492,173,0,0" VerticalAlignment="Top" Width="72" FontSize="20" Height="38" Click="btnTwees_Click"/>
-        <Label Content="3's" HorizontalAlignment="Left" Margin="492,230,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lbl3" Content="3's" HorizontalAlignment="Left" Margin="492,230,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="btnDries" Content="Klik" HorizontalAlignment="Left" Margin="492,277,0,0" VerticalAlignment="Top" Width="72" FontSize="20" Height="38" Click="btnDries_Click"/>
-        <Label Content="4's" HorizontalAlignment="Left" Margin="652,16,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lbl4" Content="4's" HorizontalAlignment="Left" Margin="652,16,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="btnViers" Content="Klik" HorizontalAlignment="Left" Margin="652,63,0,0" VerticalAlignment="Top" Width="72" FontSize="20" Height="38" Click="btnViers_Click"/>
-        <Label Content="5's" HorizontalAlignment="Left" Margin="652,126,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lbl5" Content="5's" HorizontalAlignment="Left" Margin="652,126,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="btnVijfs" Content="Klik" HorizontalAlignment="Left" Margin="652,173,0,0" VerticalAlignment="Top" Width="72" FontSize="20" Height="38" Click="btnVijfs_Click"/>
-        <Label Content="6's" HorizontalAlignment="Left" Margin="652,230,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lbl6" Content="6's" HorizontalAlignment="Left" Margin="652,230,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Button x:Name="btnZess" Content="Klik" HorizontalAlignment="Left" Margin="652,277,0,0" VerticalAlignment="Top" Width="72" FontSize="20" Height="38" Click="btnZess_Click"/>
 
         <Button x:Name="btn1" Content="" HorizontalAlignment="Left" Margin="24,23,0,0" VerticalAlignment="Top" Width="90" FontSize="20" Height="90" Click="btn1_Click"/>
@@ -27,23 +26,32 @@
         <Button x:Name="btn5" Content="" HorizontalAlignment="Left" Margin="148,133,0,0" VerticalAlignment="Top" Width="90" FontSize="20" Height="90" Click="btn5_Click"/>
         <Button x:Name="btn6" Content="" HorizontalAlignment="Left" Margin="273,133,0,0" VerticalAlignment="Top" Width="90" FontSize="20" Height="90" Click="btn6_Click"/>
         <Button x:Name="btnRol" Content="Rol" HorizontalAlignment="Left" Margin="24,251,0,0" VerticalAlignment="Top" Width="90" Height="39" FontSize="20" Click="btnRol_Click"/>
-        <Label Content="Beurten:" HorizontalAlignment="Left" Margin="148,251,0,0" VerticalAlignment="Top" FontSize="20" Width="90"/>
+        <Label x:Name="lblBeurten" Content="Beurten:" HorizontalAlignment="Left" Margin="148,251,0,0" VerticalAlignment="Top" FontSize="20" Width="90"/>
         <Label x:Name="lblAantalBeurten" Content="3" HorizontalAlignment="Left" Margin="273,250,0,0" VerticalAlignment="Top" FontSize="20" Width="90"/>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="322" Margin="470,10,0,0" VerticalAlignment="Top" Width="288" OpacityMask="Black">
-            <Label x:Name="lblTotalText" Content="Totaal:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="98,121,0,0"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="322" Margin="464,11,0,0" VerticalAlignment="Top" Width="280" OpacityMask="Black">
+            <Label x:Name="lblTotalText" Content="Totaal:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="106,120,0,0"/>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="322" Margin="10,10,0,0" VerticalAlignment="Top" Width="376"/>
-        <Label Content="1's" HorizontalAlignment="Left" Margin="492,16,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Label Content="3 of a kind" HorizontalAlignment="Left" Margin="24,362,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Button x:Name="btnThreeOfAKind" Content="Klik" HorizontalAlignment="Left" Margin="24,404,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnThreeOfAKind_Click"/>
-        <Label Content="4 of a kind" HorizontalAlignment="Left" Margin="148,362,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Button x:Name="btnFourOfAKind" Content="Klik" HorizontalAlignment="Left" Margin="148,404,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnFourOfAKind_Click"/>
-        <Label x:Name="lblTotal" Content="" HorizontalAlignment="Left" Margin="572,168,0,0" VerticalAlignment="Top" FontSize="24" Width="64"/>
-        <Label Content="Chance" HorizontalAlignment="Left" Margin="273,362,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Button x:Name="btnChance" Content="Klik" HorizontalAlignment="Left" Margin="273,404,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnChance_Click"/>
-        <Label Content="Yahtzee" HorizontalAlignment="Left" Margin="389,362,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <Button x:Name="btnYahtzee" Content="Klik" HorizontalAlignment="Left" Margin="389,404,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnYahtzee_Click"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="322" Margin="10,11,0,0" VerticalAlignment="Top" Width="376">
+            <Label x:Name="lblTotaalSpel" Content="Totaal spel:" Margin="58,123,36,105" FontSize="36"/>
+        </Border>
+        <Label x:Name="lbl1" Content="1's" HorizontalAlignment="Left" Margin="492,16,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lbl3OfKind" Content="3 of a kind" HorizontalAlignment="Left" Margin="19,361,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button x:Name="btnThreeOfAKind" Content="Klik" HorizontalAlignment="Left" Margin="19,403,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnThreeOfAKind_Click"/>
+        <Label x:Name="lbl4OfKind" Content="4 of a kind" HorizontalAlignment="Left" Margin="143,361,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button x:Name="btnFourOfAKind" Content="Klik" HorizontalAlignment="Left" Margin="143,403,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnFourOfAKind_Click"/>
+        <Label x:Name="lblTotal" Content="" HorizontalAlignment="Left" Margin="577,169,0,0" VerticalAlignment="Top" FontSize="24" Width="64"/>
+        <Label x:Name="lblChance" Content="Chance" HorizontalAlignment="Left" Margin="530,361,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button x:Name="btnChance" Content="Klik" HorizontalAlignment="Left" Margin="530,403,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnChance_Click"/>
+        <Label x:Name="lblYahtzee" Content="Yahtzee" HorizontalAlignment="Left" Margin="646,361,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button x:Name="btnYahtzee" Content="Klik" HorizontalAlignment="Left" Margin="646,403,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnYahtzee_Click"/>
+        <Label x:Name="lblGroteStraat" Content="Grote straat" HorizontalAlignment="Left" Margin="387,361,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button x:Name="btnGroteStraat" Content="Klik" HorizontalAlignment="Left" Margin="401,403,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnGroteStraat_Click"/>
+        <Label x:Name="lblKleineStraat" Content="Kleine straat" HorizontalAlignment="Left" Margin="259,361,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button x:Name="btnKleineStraat" Content="Klik" HorizontalAlignment="Left" Margin="273,403,0,0" VerticalAlignment="Top" Width="90" Height="38" FontSize="20" Click="btnKleineStraat_Click"/>
+        <Border x:Name="border2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="102" Margin="10,353,0,0" VerticalAlignment="Top" Width="734"/>
+        <Label x:Name="lblTotaalTweedeDeelText" Content="Totaal:" HorizontalAlignment="Left" Margin="346,366,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Label x:Name="lblTotalTweedeDeel" Content="" HorizontalAlignment="Left" Margin="352,392,0,0" VerticalAlignment="Top" FontSize="24" Width="72"/>
 
     </Grid>
 </Window>
