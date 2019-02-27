@@ -1,3 +1,2 @@
 # Yahtzee
-This project is still being worked on
-Not all features are added yet
+As good as finished, total work time: 4 days
