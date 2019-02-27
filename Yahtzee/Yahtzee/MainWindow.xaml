@@ -33,7 +33,7 @@
             <Label x:Name="lblTotalText" Content="Totaal:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="24" Margin="106,120,0,0"/>
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="322" Margin="10,11,0,0" VerticalAlignment="Top" Width="376">
-            <Label x:Name="lblTotaalSpel" Content="Totaal spel:" Margin="58,123,36,105" FontSize="36"/>
+            <Label x:Name="lblTotaalSpel" Content="Totaal spel: " HorizontalAlignment="Left" Height="49" Margin="93,56,0,0" VerticalAlignment="Top" Width="211" FontSize="30"/>
         </Border>
         <Label x:Name="lbl1" Content="1's" HorizontalAlignment="Left" Margin="492,16,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label x:Name="lbl3OfKind" Content="3 of a kind" HorizontalAlignment="Left" Margin="19,361,0,0" VerticalAlignment="Top" FontSize="20"/>
@@ -52,6 +52,7 @@
         <Border x:Name="border2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="102" Margin="10,353,0,0" VerticalAlignment="Top" Width="734"/>
         <Label x:Name="lblTotaalTweedeDeelText" Content="Totaal:" HorizontalAlignment="Left" Margin="346,366,0,0" VerticalAlignment="Top" FontSize="24"/>
         <Label x:Name="lblTotalTweedeDeel" Content="" HorizontalAlignment="Left" Margin="352,392,0,0" VerticalAlignment="Top" FontSize="24" Width="72"/>
+        <Button x:Name="btnOpnieuw" Content="New game" HorizontalAlignment="Left" Margin="86,173,0,0" VerticalAlignment="Top" Width="229" Height="75" FontSize="36" Click="btnOpnieuw_Click"/>
 
     </Grid>
 </Window>

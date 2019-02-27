@@ -36,15 +36,10 @@ namespace Yahtzee
         
         public MainWindow()
         {
-            InitializeComponent();         
-            
-
+            InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            StartNewGame();
-        }
+        #region methods
         void StartNewGame()
         {
             lblTotal.Visibility = Visibility.Hidden;
@@ -52,6 +47,84 @@ namespace Yahtzee
             lblTotalTweedeDeel.Visibility = Visibility.Hidden;
             lblTotaalTweedeDeelText.Visibility = Visibility.Hidden;
             lblTotaalSpel.Visibility = Visibility.Hidden;
+            btnOpnieuw.Visibility = Visibility.Hidden;
+
+            btn1.Visibility = Visibility.Visible;
+            btn1.IsEnabled = true;
+            btn2.Visibility = Visibility.Visible;
+            btn2.IsEnabled = true;
+            btn3.Visibility = Visibility.Visible;
+            btn3.IsEnabled = true;
+            btn4.Visibility = Visibility.Visible;
+            btn4.IsEnabled = true;
+            btn5.Visibility = Visibility.Visible;
+            btn5.IsEnabled = true;
+            btn6.Visibility = Visibility.Visible;
+            btn6.IsEnabled = true;
+
+
+            lbl1.Visibility = Visibility.Visible;
+            lbl2.Visibility = Visibility.Visible;
+            lbl3.Visibility = Visibility.Visible;
+            lbl4.Visibility = Visibility.Visible;
+            lbl6.Visibility = Visibility.Visible;
+            lbl5.Visibility = Visibility.Visible;
+
+            btnEentjes.Visibility = Visibility.Visible;
+            btnEentjes.Content = "Klik";
+            btnEentjes.IsEnabled = true;
+            btnTwees.Visibility = Visibility.Visible;
+            btnTwees.Content = "Klik";
+            btnTwees.IsEnabled = true;
+            btnDries.Visibility = Visibility.Visible;
+            btnDries.Content = "Klik";
+            btnDries.IsEnabled = true;
+            btnViers.Visibility = Visibility.Visible;
+            btnViers.Content = "Klik";
+            btnViers.IsEnabled = true;
+            btnVijfs.Visibility = Visibility.Visible;
+            btnVijfs.Content = "Klik";
+            btnVijfs.IsEnabled = true;
+            btnZess.Visibility = Visibility.Visible;
+            btnZess.Content = "Klik";
+            btnZess.IsEnabled = true;
+
+            btnThreeOfAKind.Content = "Klik";
+            btnThreeOfAKind.IsEnabled = true;
+            btnThreeOfAKind.Visibility = Visibility.Visible;
+            btnFourOfAKind.Content = "Klik";
+            btnFourOfAKind.IsEnabled = true;
+
+            btnFourOfAKind.Visibility = Visibility.Visible;
+            btnKleineStraat.Content = "Klik";
+            btnKleineStraat.IsEnabled = true;
+            btnKleineStraat.Visibility = Visibility.Visible;
+            btnGroteStraat.Content = "Klik";
+            btnGroteStraat.IsEnabled = true;
+            btnGroteStraat.Visibility = Visibility.Visible;
+            btnChance.Content = "Klik";
+            btnChance.IsEnabled = true;
+            btnChance.Visibility = Visibility.Visible;
+            btnYahtzee.Content = "Klik";
+            btnYahtzee.IsEnabled = true;
+            btnYahtzee.Visibility = Visibility.Visible;
+
+            lbl3OfKind.Visibility = Visibility.Visible;
+            lbl4OfKind.Visibility = Visibility.Visible;
+            lblKleineStraat.Visibility = Visibility.Visible;
+            lblGroteStraat.Visibility = Visibility.Visible;
+            lblChance.Visibility = Visibility.Visible;
+            lblYahtzee.Visibility = Visibility.Visible;
+            lblBeurten.Visibility = Visibility.Visible;
+            lblAantalBeurten.Visibility = Visibility.Visible;
+            btnRol.Visibility = Visibility.Visible;
+            lblAantalBeurten.Content = 3;
+            lblTotaalSpel.Content = "";
+            lblTotal.Content = "";
+            lblTotalTweedeDeel.Content = "";
+
+            eindeEersteDeel = 0;
+            eindeTweedeDeel = 0;
 
         }
         void Reset()
@@ -156,7 +229,7 @@ namespace Yahtzee
             lblTotaalTweedeDeelText.Visibility = Visibility.Visible;
             lblTotalTweedeDeel.Visibility = Visibility.Visible;
         }
-        private void EndGame()
+        void EndGame()
         {
             if (eindeEersteDeel == 6 && eindeTweedeDeel == 6)
             {
@@ -176,9 +249,9 @@ namespace Yahtzee
                 int secondPart = Convert.ToInt32(lblTotalTweedeDeel.Content);
                 int totaal = firstPart + secondPart;
                 lblTotaalSpel.Content = "Totaal spel: " + totaal;
+                btnOpnieuw.Visibility = Visibility.Visible;
             }
-        }
-        
+        }        
         void RolStenen()
         {
             int beurten = int.Parse(lblAantalBeurten.Content.ToString());
@@ -327,12 +400,17 @@ namespace Yahtzee
                 btnGroteStraat.Content = 0;
             }
         }
+        #endregion
 
+        #region events
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            StartNewGame();
+        }
         private void btnRol_Click(object sender, RoutedEventArgs e)
         {
             RolStenen();
         }
-
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
             if (rol1 == true)
@@ -348,7 +426,6 @@ namespace Yahtzee
             }
             
         }
-
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
             if (rol2 == true)
@@ -363,7 +440,6 @@ namespace Yahtzee
                 btn2.Background = Brushes.LightGray;
             }
         }
-
         private void btn3_Click(object sender, RoutedEventArgs e)
         {
             if (rol3 == true)
@@ -378,7 +454,6 @@ namespace Yahtzee
                 btn3.Background = Brushes.LightGray;
             }
         }
-
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
             if (rol4 == true)
@@ -393,7 +468,6 @@ namespace Yahtzee
                 btn4.Background = Brushes.LightGray;
             }
         }
-
         private void btn5_Click(object sender, RoutedEventArgs e)
         {
             if (rol5 == true)
@@ -408,7 +482,6 @@ namespace Yahtzee
                 btn5.Background = Brushes.LightGray;
             }
         }
-
         private void btn6_Click(object sender, RoutedEventArgs e)
         {
             if (rol6 == true)
@@ -423,7 +496,6 @@ namespace Yahtzee
                 btn6.Background = Brushes.LightGray;
             }
         }
-
         private void btnEentjes_Click(object sender, RoutedEventArgs e)
         {
             int aantalEentjes = 0;
@@ -441,7 +513,6 @@ namespace Yahtzee
             EindeSingleNummers();
             EndGame();
         }
-
         private void btnTwees_Click(object sender, RoutedEventArgs e)
         {
             int aantalTwees = 0;
@@ -459,7 +530,6 @@ namespace Yahtzee
             EindeSingleNummers();
             EndGame();
         }
-
         private void btnDries_Click(object sender, RoutedEventArgs e)
         {
             int aantalDries = 0;
@@ -477,7 +547,6 @@ namespace Yahtzee
             EindeSingleNummers();
             EndGame();
         }
-
         private void btnViers_Click(object sender, RoutedEventArgs e)
         {
             int aantalViers = 0;
@@ -495,7 +564,6 @@ namespace Yahtzee
             EindeSingleNummers();
             EndGame();
         }
-
         private void btnVijfs_Click(object sender, RoutedEventArgs e)
         {
             int aantalVijfs = 0;
@@ -513,7 +581,6 @@ namespace Yahtzee
             EindeSingleNummers();
             EndGame();
         }
-
         private void btnZess_Click(object sender, RoutedEventArgs e)
         {
             int aantalZess = 0;
@@ -531,7 +598,6 @@ namespace Yahtzee
             EindeSingleNummers();
             EndGame();
         }
-
         private void btnThreeOfAKind_Click(object sender, RoutedEventArgs e)
         {
             int totaal = 0;
@@ -569,7 +635,6 @@ namespace Yahtzee
             Reset();
             EndGame();
         }
-
         private void btnFourOfAKind_Click(object sender, RoutedEventArgs e)
         {
             int totaal = 0;
@@ -608,7 +673,6 @@ namespace Yahtzee
             Reset();
             EndGame();
         }
-
         private void btnChance_Click(object sender, RoutedEventArgs e)
         {
             int totaal = 0;
@@ -623,7 +687,6 @@ namespace Yahtzee
             Reset();
             EndGame();
         }
-
         private void btnYahtzee_Click(object sender, RoutedEventArgs e)
         {   
             if (spelVerloop.StenenList[0].Waarde != 0)
@@ -650,7 +713,6 @@ namespace Yahtzee
             Reset();
             EndGame();
         }
-
         private void btnGroteStraat_Click(object sender, RoutedEventArgs e)
         {
             CheckGroteStraat();            
@@ -660,7 +722,6 @@ namespace Yahtzee
             Reset();
             EndGame();
         }
-
         private void btnKleineStraat_Click(object sender, RoutedEventArgs e)
         {
             CheckKleineStraat();
@@ -669,6 +730,12 @@ namespace Yahtzee
             EindeOndersteRij();
             Reset();
             EndGame();
-        }        
+        }
+        private void btnOpnieuw_Click(object sender, RoutedEventArgs e)
+        {
+            StartNewGame();
+
+        }
+        #endregion
     }
 }
